@@ -1,8 +1,6 @@
-# Ruby Style Guide
+# SQL Style Guide
 
-This is Airbnb's Ruby Style Guide.
-
-It was inspired by [Github's guide][github-ruby] and [Bozhidar Batsov's guide][bbatsov-ruby].
+This is Airbnb's SQL Style Guide.
 
 Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
 
@@ -34,4 +32,39 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     WHERE
       status = 1
     ```
-    
+
+### Inline
+
+* 100 character limit
+* For calculated strings(?) put each parameter on a new line beginning with the operator
+
+```sql
+
+    # good 
+    SELECT
+      SUM(
+        ROUND(
+          (
+            total_payout_cents_host_currency
+            - reconciled_payout_cents_host_currency
+            - GREATEST(
+                liable_payout_cents_host_currency - reconciled_payout_cents_host_currency,
+                0
+              )
+          ) / fx.rate
+        )
+      ) / 100 AS 'Future Host Payout (2620)'
+     
+      # bad
+    ```
+
+
+
+### Newlines
+
+## Line Length
+## Commenting
+## Misc
+* Keywords should be in all caps
+
+
