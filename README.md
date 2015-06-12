@@ -92,6 +92,7 @@ ON
 
 ## Operators
 * Use 1 space before and after operators
+
 ```base_price + extras_price - host_fee / nights```
 ```sql 
 WHERE i.i = i2.max
