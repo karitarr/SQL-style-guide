@@ -18,13 +18,10 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
 ## Whitespace
 
 ### Indentation
-
 * Use soft-tabs with a two space-indent.
 * Use spaces before and after operators
 * Align all list items following keywords on a new line, indented 2 spaces
-
-
-    ```sql
+```sql
     # good
     SELECT
       *    
@@ -37,12 +34,9 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     SELECT *    
     FROM reservation2s
     WHERE status = 1
-   
-    ```
+```
 * Align  `SELECT` subordinates with each argument on a new line, beginning each line with the comma. Indenting the first argument 4 spaces.
-
-
-    ```sql
+```sql
     # good
     SELECT
         id
@@ -74,33 +68,57 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     SELECT id, start_date, guest_id, host_id      
     FROM
       reservation2s
-
-    ```
+```
 
 
 ### New Lines
-
 * 100 character limit
 * For complicated or long calculations put each expression on a new line beginning with the operator
 
 ```sql
-SELECT
-    total_payout_cents_host_currency
-  - reconciled_payout_cents_host_currency
-  - liable_payout_cents_host_currency 
-  AS 'Host Payout'
+  SELECT
+      total_payout_cents_host_currency
+    + reconciled_payout_cents_host_currency
+    + liable_payout_cents_host_currency 
+    AS 'Host Payout'
 ```
-
-### Nested Layers
-* When using functions with nested layers, align the opening and closing of the block by putting each expression on a new line, indend 2 spaces and align the closing paren with the opening function.
+### Parentheses
+* preference??
 
 ```sql
+    # option 1
+    SELECT
+      SUM(total_payout_cents_host_currency + liable_payout_cents_host_currency)
+    FROM
+      host_payout_helpers
+
+    #option 2
+    SELECT
+      SUM(
+          total_payout_cents_host_currency 
+        + liable_payout_cents_host_currency
+      )
+    FROM
+      host_payout_helpers  
+
+    #option 3
+    SELECT
+      SUM
+        (
+          total_payout_cents_host_currency 
+        + liable_payout_cents_host_currency
+        )
+    FROM
+      host_payout_helpers 
+```
+### Nested Functions
+* When using functions with nested layers, align the opening and closing of the block either by putting just the expressions on a new line or the opening paren.
+```sql
+    # option 1
     SELECT
       SUM(
         ROUND(
-          (
             total_payout_cents_host_currency
-            - reconciled_payout_cents_host_currency
             - GREATEST(
                 liable_payout_cents_host_currency - reconciled_payout_cents_host_currency,
                 0
@@ -108,19 +126,16 @@ SELECT
           ) / fx.rate
         )
       ) / 100 AS 'Host Payout'
-    ```
-
-
-
+ ```
+ 
 ### Line Breaks
 ## Line Length
 ## Commenting
 ## Naming
 * Use lower case and underscores for field names, tables names
 * Avoid excessive abbreviations
-
 * TODO- how to name aliases??
-*
+
 ## Capitalization
 * The following should be in uppercase 
   - SQL keywords (e.g. SELECT, FROM, WHERE) 
@@ -128,9 +143,5 @@ SELECT
   - Data types (e.g. INT, CHAR) 
 * Use single quotation for characters, strings, binary and Unicode
 
-
- match the closing paren for the SUM( block
-
-In general, indentation should match block nesting, which generally matches paren nesting. Make it easy for the reader to visually see the nesting structure that the code represents.
 
  
