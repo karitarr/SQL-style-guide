@@ -7,10 +7,11 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
 ## Table of Contents
   1.  [Whitespace](#whitespace)
       1. [Indentation](#indentation)
-      1. [Inline](#inline)
-      1. [Newlines](#newlines)
+      1. [New Lines](#new-lines)
+      1. [Line Breaks](#line-breaks)
   1.  [Line Length](#line-length)
   1.  [Commenting](#commenting)
+  1.  [Naming](#naming) 
   1.  [Misc.](#misc.)
       
 
@@ -19,28 +20,81 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
 ### Indentation
 
 * Use soft-tabs with a two space-indent.
-* Alight `SELECT` statements beginning with a comma or have all on the same line.
-
 * Use spaces before and after operators
-* Align parameters following keywords on a new line and indent 2 spaces
+* Align all list items following keywords on a new line, indented 2 spaces
+
 
     ```sql
+    # good
     SELECT
-      *
+      *    
     FROM
       reservation2s
     WHERE
       status = 1
+
+    #bad 
+    SELECT *    
+    FROM reservation2s
+    WHERE status = 1
+   
+    ```
+* Align  `SELECT` subordinates with each argument on a new line, beginning each line with the comma. Indenting the first argument 4 spaces.
+
+
+    ```sql
+    # good
+    SELECT
+        id
+      , start_date
+      , guest_id
+      , host_id      
+    FROM
+      reservation2s
+
+    #bad 
+    SELECT
+      id
+      , start_date
+      , guest_id
+      , host_id      
+    FROM
+      reservation2s
+
+    #bad 
+    SELECT
+      id, 
+      start_date,
+      guest_id,
+      host_id      
+    FROM
+      reservation2s
+
+    #bad 
+    SELECT id, start_date, guest_id, host_id      
+    FROM
+      reservation2s
+
     ```
 
-### Inline
+
+### New Lines
 
 * 100 character limit
-* For calculated strings(?) put each parameter on a new line beginning with the operator
+* For complicated or long calculations put each expression on a new line beginning with the operator
 
 ```sql
+SELECT
+    total_payout_cents_host_currency
+  - reconciled_payout_cents_host_currency
+  - liable_payout_cents_host_currency 
+  AS 'Host Payout'
+```
 
-    # good 
+### Nested Layers
+* When using functions with nested layers, align the opening and closing of the block by putting each expression on a new line, indend 2 spaces and align the closing paren with the opening function.
+
+```sql
     SELECT
       SUM(
         ROUND(
@@ -53,18 +107,30 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
               )
           ) / fx.rate
         )
-      ) / 100 AS 'Future Host Payout (2620)'
-     
-      # bad
+      ) / 100 AS 'Host Payout'
     ```
 
 
 
-### Newlines
-
+### Line Breaks
 ## Line Length
 ## Commenting
-## Misc
-* Keywords should be in all caps
+## Naming
+* Use lower case and underscores for field names, tables names
+* Avoid excessive abbreviations
+
+* TODO- how to name aliases??
+*
+## Capitalization
+* The following should be in uppercase 
+  - SQL keywords (e.g. SELECT, FROM, WHERE) 
+  - Built-in functions (e.g. SUM, AVE, CASE, IF)
+  - Data types (e.g. INT, CHAR) 
+* Use single quotation for characters, strings, binary and Unicode
 
 
+ match the closing paren for the SUM( block
+
+In general, indentation should match block nesting, which generally matches paren nesting. Make it easy for the reader to visually see the nesting structure that the code represents.
+
+ 
