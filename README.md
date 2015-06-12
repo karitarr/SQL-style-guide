@@ -174,7 +174,6 @@ WHERE i.i = i2.max
 * for currency fields follow the name with the denomination + currency + rate/timing:
 
 ```revenue_cents_usd_at_booking```
-```revenue_cents_native_at_checkin```
 
 ## Commenting
 * Comments should begin with a hash followed by 2 spaces
