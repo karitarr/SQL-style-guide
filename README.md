@@ -4,8 +4,6 @@ This is Airbnb's SQL Style Guide.
 
 ## Table of Contents
   1. [Structure](#structure)
-      1. [Indentation](#indentation)
-      1. [New Lines](#new-lines)
   1. [Lists](#lists)
   1. [Joins](#joins)
   1. [Operators](#operators)
@@ -19,18 +17,14 @@ This is Airbnb's SQL Style Guide.
       
 
 ## Structure
-### Indentation
 * Use soft-tabs with a two space-indent
-
-
-### New Lines
 * Place each keyword on a new line
 * Clearly separate union queries by adding a line break before and after the ```UNION``` keyword
 
 ## Lists
 * Wrap SELECT statements longer than 30 characters in the following way:
 
-### Style 1
+#### Style 1
 The first value is placed on a new line, indented 4 spaces. The subsequent values are placed on new lines, beginning with commas. The value names are aligned. 
 ```sql
     SELECT
@@ -42,7 +36,7 @@ The first value is placed on a new line, indented 4 spaces. The subsequent value
       reservation2s
 ```
 
-### Style 2
+#### Style 2
 The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, beginning with commas. The commas align with the first value. 
 ```sql
     SELECT
@@ -53,7 +47,7 @@ The first value is placed on a new line, indented 2 spaces. The subsequent value
     FROM
       reservation2s
 ```
-### Style 3
+#### Style 3
 The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, ending with commas.
 ```sql
     SELECT
@@ -66,7 +60,7 @@ The first value is placed on a new line, indented 2 spaces. The subsequent value
 ```
 
 ## Joins
-###Style 1
+####Style 1
  ```JOIN``` keyword is placed on a new line. The ```ON``` and ```AND``` keywords are moved to a new line and indented 2 spaces: 
 ```sql 
 SELECT *
@@ -78,7 +72,7 @@ LEFT JOIN line_items
   ON reservation2s.id = line_items.item_id 
   AND line_items.reconciled 
 ```
-###Style 2
+####Style 2
   The ```JOIN``` keyword is placed on a new line.The argument is placed on a new line and intended 2 spaces.The ```ON``` keyword is NOT placed on a new line. The arguments following ```ON``` are placed on a new line, indented 2 spaces and aligned.
 ```sql 
 SELECT *
@@ -94,10 +88,14 @@ LEFT JOIN
 ON 
   reservation2s.id = line_items.item_id 
   AND line_items.reconciled
+```sql 
+WHERE i.i = i2.max
 ```
+```base_price + extras_price - host_fee / nights```
 
 ## Operators
 * Use 1 space before and after operators
+* ```
 
 ## Expressions
 * For complicated or long calculations put each expression on a new line beginning with the operator
@@ -168,9 +166,9 @@ ON
 
 ## Naming Conventions
 * The following should be in uppercase 
-  - SQL keywords (e.g. SELECT, FROM, WHERE) 
-  - Built-in functions (e.g. SUM, AVE, CASE, IF)
-  - Data types (e.g. INT, CHAR) 
+  - SQL keywords (e.g. ```SELECT```, ```FROM```, ```WHERE```) 
+  - Built-in functions (e.g. ```SUM```, ```AVE```, ```CASE```, ````IF```)
+  - Data types (e.g. ```INT```, ```CHAR```) 
 * Use single quotation for characters, strings, binary and Unicode
 * Use lower case and underscores for field names and tables names
 * for currency fields follow the name with the denomination + currency + rate/timing:
