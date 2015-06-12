@@ -88,14 +88,14 @@ LEFT JOIN
 ON 
   reservation2s.id = line_items.item_id 
   AND line_items.reconciled
-```sql 
-WHERE i.i = i2.max
-```
-```base_price + extras_price - host_fee / nights```
+
 
 ## Operators
 * Use 1 space before and after operators
-* ```
+```base_price + extras_price - host_fee / nights```
+```sql 
+WHERE i.i = i2.max
+```
 
 ## Expressions
 * For complicated or long calculations put each expression on a new line beginning with the operator
