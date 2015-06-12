@@ -164,6 +164,14 @@ WHERE i.i = i2.max
     ON innter_table.id = reservation2s.id
  ```
 
+## Commenting
+* Comments should begin with a hash followed by 2 spaces
+* Comments should lie above the code, not inline
+* Things that should have comments in SQL:
+  - High level explanation in files with multiple queries
+  - Complicated IF-THEN-ELSE or CASE WHEN statements
+  - Derived tables that don't have an explanatory alias
+
 ## Naming Conventions
 * The following should be in uppercase 
   - SQL keywords (e.g. ```SELECT```, ```FROM```, ```WHERE```) 
@@ -174,16 +182,3 @@ WHERE i.i = i2.max
 * for currency fields follow the name with the denomination + currency + rate/timing:
 
 ```revenue_cents_usd_at_booking```
-
-## Commenting
-* Comments should begin with a hash followed by 2 spaces
-* Comments should lie above the code, not inline
-* Things that should have comments in SQL:
-  - High level explanation in files with multiple queries
-  - Complicated IF-THEN-ELSE or CASE WHEN statements
-  - Derived tables that don't have an explanatory alias
-
-
-
-
- 
