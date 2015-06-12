@@ -168,10 +168,11 @@ WHERE i.i = i2.max
 * The following should be in uppercase 
   - SQL keywords (e.g. ```SELECT```, ```FROM```, ```WHERE```) 
   - Built-in functions (e.g. ```SUM```, ```AVE```, ```CASE```, ````IF```)
-  - Data types (e.g. ```INT```, ```CHAR) 
+  - Data types (e.g. ```INT```, ```CHAR```) 
 * Use single quotation for characters, strings, binary and Unicode
 * Use lower case and underscores for field names and tables names
 * for currency fields follow the name with the denomination + currency + rate/timing:
+
 ```revenue_cents_usd_at_booking```
 ```revenue_cents_native_at_checkin```
 
