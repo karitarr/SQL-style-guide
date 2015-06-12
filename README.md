@@ -24,13 +24,14 @@ This is Airbnb's SQL Style Guide.
 
 
 ### New Lines
-*Place each keyword on a new line
+* Place each keyword on a new line
 * Clearly separate union queries by adding a line break before and after the ```UNION``` keyword
-* 
+
 ## Lists
 * Wrap SELECT statements longer than 30 characters in the following way:
 
-### Style 1- The first value is placed on a new line, indented 4 spaces. The subsequent values are placed on new lines, beginning with commas. The value names are aligned. 
+### Style 1
+The first value is placed on a new line, indented 4 spaces. The subsequent values are placed on new lines, beginning with commas. The value names are aligned. 
 ```sql
     SELECT
         id
@@ -40,7 +41,9 @@ This is Airbnb's SQL Style Guide.
     FROM
       reservation2s
 ```
-### Style 2- The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, beginning with commas. The commas align with the first value. 
+
+### Style 2
+The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, beginning with commas. The commas align with the first value. 
 ```sql
     SELECT
       id
@@ -50,7 +53,8 @@ This is Airbnb's SQL Style Guide.
     FROM
       reservation2s
 ```
-### Style 3- The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, ending with commas.
+### Style 3
+The first value is placed on a new line, indented 2 spaces. The subsequent values are placed on new lines, ending with commas.
 ```sql
     SELECT
       id, 
@@ -62,7 +66,8 @@ This is Airbnb's SQL Style Guide.
 ```
 
 ## Joins
-###Style 1- ```JOIN``` keyword is placed on a new line. The ```ON``` and ```AND``` keywords are moved to a new line and indented 2 spaces: 
+###Style 1
+ ```JOIN``` keyword is placed on a new line. The ```ON``` and ```AND``` keywords are moved to a new line and indented 2 spaces: 
 ```sql 
 SELECT *
 FROM reservation2s 
@@ -73,7 +78,8 @@ LEFT JOIN line_items
   ON reservation2s.id = line_items.item_id 
   AND line_items.reconciled 
 ```
-###Style 2-  The ```JOIN``` keyword is placed on a new line.The argument is placed on a new line and intended 2 spaces.The ```ON``` keyword is NOT placed on a new line. The arguments following ```ON``` are placed on a new line, indented 2 spaces and aligned.
+###Style 2
+  The ```JOIN``` keyword is placed on a new line.The argument is placed on a new line and intended 2 spaces.The ```ON``` keyword is NOT placed on a new line. The arguments following ```ON``` are placed on a new line, indented 2 spaces and aligned.
 ```sql 
 SELECT *
 FROM 
@@ -93,7 +99,6 @@ ON
 ## Operators
 * Use 1 space before and after operators
 
-
 ## Expressions
 * For complicated or long calculations put each expression on a new line beginning with the operator
 
@@ -106,7 +111,8 @@ ON
 ```
 
 ### Parentheses
-#### Style 1- Keep opening paren inline with the function. Place expressions on a new line and indent 2 spaces. Place closing paren on a new line and align with the function to close the block: 
+#### Style 1
+ Keep opening paren inline with the function. Place expressions on a new line and indent 2 spaces. Place closing paren on a new line and align with the function to close the block: 
 ```sql    
     SELECT
       SUM(
@@ -116,7 +122,8 @@ ON
     FROM
       host_payout_helpers  
 ```
-#### Style 2- Place opening paren on a new line and indent 2 spaces  Place expressions on a new line and indent 2 spaces. Place closing paren on a new line and align with the function to close the block:
+#### Style 2
+ Place opening paren on a new line and indent 2 spaces  Place expressions on a new line and indent 2 spaces. Place closing paren on a new line and align with the function to close the block:
 ```sql
     SELECT
       SUM
@@ -128,7 +135,7 @@ ON
       host_payout_helpers 
 ```
 ### Nested Functions
-###When using functions with nested layers, align the opening and closing of the block either by putting just the expressions on a new line or the opening paren:
+* When using functions with nested layers, align the opening and closing of the block either by putting just the expressions on a new line or the opening paren:
 ```sql
     SELECT
       SUM(
@@ -144,7 +151,7 @@ ON
  ```
 
 ### Subqueries
-### For subqueries, place an open paren on a new line and intent 4 spaces. Place the SELECT statement on a new line and indent 2 spaces. Place the closing paren on a new line and align with opening paren. Place the alias on a new line and indent 2 spaces:
+* For subqueries, place an open paren on a new line and intent 4 spaces. Place the SELECT statement on a new line and indent 2 spaces. Place the closing paren on a new line and align with opening paren. Place the alias on a new line and indent 2 spaces:
 ```sql
     SELECT *
     FROM 
@@ -167,10 +174,8 @@ ON
 * Use single quotation for characters, strings, binary and Unicode
 * Use lower case and underscores for field names and tables names
 * for currency fields follow the name with the denomination + currency + rate/timing:
-```sql
-revenue_cents_usd_at_booking
-revenue_cents_native_at_checkin
-```
+```revenue_cents_usd_at_booking```
+```revenue_cents_native_at_checkin```
 
 ## Commenting
 * Comments should begin with a hash followed by 2 spaces
