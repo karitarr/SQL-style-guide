@@ -88,7 +88,7 @@ LEFT JOIN
 ON 
   reservation2s.id = line_items.item_id 
   AND line_items.reconciled
-
+```
 
 ## Operators
 * Use 1 space before and after operators
