@@ -180,5 +180,4 @@ WHERE i.i = i2.max
 * Use single quotation for characters, strings, binary and Unicode
 * Use lower case and underscores for field names and tables names
 * for currency fields follow the name with the denomination + currency + rate/timing:
-
 ```revenue_cents_usd_at_booking```
