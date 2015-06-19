@@ -1,5 +1,6 @@
 # SQL Style Guide
 
+
 This is Airbnb's SQL Style Guide.
 
 ## Table of Contents
