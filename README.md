@@ -24,7 +24,7 @@ This is Airbnb's SQL Style Guide.
 ## Lists
 * Wrap SELECT statements longer than 30 characters in the following way:
 
-#### Style 1
+#### Style 1 
 The first value is placed on a new line, indented 4 spaces. The subsequent values are placed on new lines, beginning with commas. The value names are aligned. 
 ```sql
     SELECT
