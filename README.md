@@ -1,6 +1,6 @@
 # SQL Style Guide
 
-This is Airbnb's SQL Style Guide.
+My personal sql style preferences disguised as a style guide for easy forcing upon all subsequent eng teams i work with
 
 ## Table of Contents
   1. [Structure](#structure)
